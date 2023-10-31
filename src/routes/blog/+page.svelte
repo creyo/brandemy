@@ -45,9 +45,7 @@ import supabase from '../../config/supabase.js';
             <h1>Brandemy</h1>
             <h3>Your Brand, Instantly Owned</h3>
         </div>
-        <div class="hero-para">
-        <p> <b>Brandemy,</b> </p>
-        
+        <div class="hero-para">        
         <p>one-stop brand identity solution, offers short and memorable brand names,
         complete with domain names, logos, and stationery design. Say goodbye to months of
          searching and hello to owning your brand name in minutes with our seamless services.</p>
