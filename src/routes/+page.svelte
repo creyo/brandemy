@@ -53,7 +53,7 @@
 		</div>
 	</div>
     <div class="home-hero">
-        <h1>Get the right brandname for your Million Dollar Buinsess</h1>
+        <h1>Get the right brandname for your Million Dollar Businsess</h1>
         <p>Here is the Smarter, Faster way to name a <span>Product</span></p>
         <img src={hero} alt="">
     </div>
