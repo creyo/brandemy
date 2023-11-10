@@ -7,9 +7,6 @@
   import Spinner from '../../components/Spinner.svelte';
 
 export let data;
-  /**
-   * @type {{ body: string; title: string; authors: { name: string; bio: any; }; date: string; featured_image: string; }}
-   */
 let blog = data.data;
 let body = "";
 let title = "";
@@ -19,7 +16,6 @@ let image = '';
 let isLoading = true;
 	
 	onMount(async () => {
-    // @ts-ignore
    if(blog){
     body = blog.body
     title = blog.title
@@ -33,7 +29,6 @@ let isLoading = true;
 
 </script>
 {#if isLoading}
-<!-- Display a loader while data is loading -->
 <Spinner/>
 {:else}
 {#if blog}
