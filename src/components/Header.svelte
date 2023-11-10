@@ -9,7 +9,6 @@
 
 </script>
 {#if !home}
-
 <div class="navbar">
     <img src={logo} alt="">
 </div>

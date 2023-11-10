@@ -8,7 +8,7 @@
      export let blog;
     
 </script>
-<a href="{blog.url}" data-sveltekit-reload >
+<a href="{blog.url}">
 <div class="blog-card">
     <div class="flex">
         <p>Branding Strategies</p>

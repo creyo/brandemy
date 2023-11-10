@@ -1,7 +1,7 @@
-import supabase from '../../config/supabase.js';
-    
+import { supabase } from "$lib/supabaseClient";
+/** @type {import('./$types').PageServerLoad} */
   export async function load()  {
-        const {data} = await supabase
+        const {data}= await supabase
   			.from('articles')
               .select(`
             *,
@@ -10,10 +10,8 @@ import supabase from '../../config/supabase.js';
             categories(*),
             post_type(*),
             publication(*)
-          `)
-        return {
-            props: {
-                blogs: data ?? [],
-            }
+          `).eq('publication_id', 3).eq('post_type', 2).eq('status', 3)
+        return { 
+                data,
         }
     }

@@ -1,42 +1,22 @@
 <svelte:head>
     <title>Brandemy | Blogs</title>
 </svelte:head>
-
-
 <script>
 // @ts-nocheck
-
-    import Spinner from '../../components/Spinner.svelte';
+import Spinner from '../../components/Spinner.svelte';
 import BlogCard from '../../components/blogCard.svelte';
-import supabase from '../../config/supabase.js';
-    import { onMount } from 'svelte';
-    /**
-   * @type {any[]}
-   */
-    let blogs = [];
-    let isLoading = true;
-    onMount(async () => {
-	let { data, error } = await supabase
-  			.from('articles')
-              .select(`
-            *,
-            articlestatus(*),
-            authors(*),
-            categories(*),
-            post_type(*),
-            publication(*)
-          `).eq('publication_id', 3).eq('post_type', 2).eq('status', 3)
+import { onMount } from 'svelte';
+/** @type {import('./$types').PageData} */
+export let data; 
+let  blogs = data.data;
+let isLoading = true;
 
-		if (error) {
-			console.log(error);
-		} else {
-            // @ts-ignore
-            let digital_products = data.filter(article=>article.post_type.type_name=="Blog")
-			blogs = digital_products;
-			console.log(blogs);
+    onMount(async () => {
+		if (blogs) {
+            isLoading = false;
 		}
-        isLoading = false;
 	});
+
 </script>
 
 <section class="blogs-hero">
@@ -59,13 +39,11 @@ import supabase from '../../config/supabase.js';
 
 <div class="blogs-grid container">
     {#if isLoading}
-<!-- Display a loader while data is loading -->
 <Spinner/>
 {:else}
     {#each blogs as blog}
     <BlogCard {blog} />
     {/each}
-
 {/if}
 </div>
 
