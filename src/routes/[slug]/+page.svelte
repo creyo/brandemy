@@ -1,3 +1,8 @@
+
+<svelte:head>
+    <title>{title} | Brandemy</title>
+</svelte:head>
+
 <script>
   import { onMount } from 'svelte';
   import Spinner from '../../components/Spinner.svelte';
@@ -24,9 +29,7 @@ let isLoading = true;
 
 
 </script>
-<svelte:head>
-    <title>{title} | Brandemy</title>
-</svelte:head>
+
 {#if isLoading}
 <Spinner/>
 {:else}

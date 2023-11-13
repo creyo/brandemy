@@ -36,8 +36,7 @@ export async function load({ params }) {
   }
 
   return {
-    data: data[0], // Assuming you want to return only one blog post
+    data: data[0],
   };
 }
 
-export const prerender = true;
