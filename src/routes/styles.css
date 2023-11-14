@@ -151,6 +151,9 @@ body{
     background-color: #EFB027;
     color: #3E001F;
   }
+  .btn-dark:hover{
+    background-color: #3E001F;
+  }
 
   .btn-light{
     background-color: #3E001F;
@@ -564,6 +567,7 @@ footer .social>*, footer p{
     border: none;
     border-radius: 20px;
     padding: 10px 20px;
+    cursor: pointer;
   }
   @keyframes spin {
     0% {

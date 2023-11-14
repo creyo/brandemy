@@ -8,8 +8,15 @@ import BlogCard from '../../components/blogCard.svelte';
 import { onMount } from 'svelte';
 /** @type {import('./$types').PageData} */
 export let data; 
-let  blogs = data.data;
+let currentPopulation = 12
+let  blogs = data.data.slice(0, currentPopulation);
 let isLoading = true;
+
+const handlePopulation = () => {
+    currentPopulation += 12;
+    blogs = data.data.slice(0, currentPopulation);
+}
+
 
     onMount(async () => {
 		if (blogs) {
@@ -45,5 +52,10 @@ let isLoading = true;
     <BlogCard {blog} />
     {/each}
 {/if}
+</div>
+<div class="button-div" >
+    <button class="btn btn-dark" style="color: white;" on:click={handlePopulation}>
+        More
+    </button>
 </div>
 
