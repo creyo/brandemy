@@ -267,6 +267,7 @@ footer .social>*, footer p{
     font-size: 1.4rem;
     font-family: 'Aclonica', sans-serif;
     margin-bottom: 5px;
+    color: #454545;
  } 
 
   .navbar{
@@ -653,7 +654,7 @@ footer .line{
     /* text-align: justify; */
 }
 .content p, .content li{
-   font-size: 16px;
+   font-size: 17px;
 }
 
 .content h1{
