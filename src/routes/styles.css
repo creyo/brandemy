@@ -252,6 +252,9 @@ footer .social>*, footer p{
     margin-bottom: 5px;
     /* font-family: Georgia, 'Times New Roman', Times, serif; */
  }
+ .content ol, .content ul{
+      margin-left: 2rem;
+ }
  .content h1{
      font-size: 2rem;
     font-family: 'Aclonica', sans-serif;
@@ -645,14 +648,14 @@ footer .line{
     bottom: -8rem;
 }
 .content{
-    max-width: 90%;
+    max-width: 94%;
     margin-top: 7rem;
     /* text-align: justify; */
 }
 .content p, .content li{
    font-size: 16px;
-  
 }
+
 .content h1{
     font-size: 16px;
  }
