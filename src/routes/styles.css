@@ -252,18 +252,18 @@ footer .social>*, footer p{
 }
 .content p, .content li{
     font-size: 1.5rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
  }
  .content h1{
      font-size: 2rem;
     /* font-family: 'Aclonica', sans-serif !important; */
-    font-family: 'Roboto', sans-serif ;
+    /* font-family: 'Roboto', sans-serif ; */
     color: #454545;
   }
 
  .content h2, .content h3{
     font-size: 1.7rem;
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
  } 
 
   .navbar{
@@ -645,7 +645,7 @@ footer .line{
     bottom: -8rem;
 }
 .content{
-    max-width: 430px;
+    max-width: 400px;
     margin-top: 7rem;
     /* text-align: justify; */
 }
