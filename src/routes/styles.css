@@ -645,7 +645,7 @@ footer .line{
     bottom: -8rem;
 }
 .content{
-    max-width: 400px;
+    max-width: 80%;
     margin-top: 7rem;
     /* text-align: justify; */
 }
