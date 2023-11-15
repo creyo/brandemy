@@ -256,14 +256,14 @@ footer .social>*, footer p{
  }
  .content h1{
      font-size: 2rem;
-    /* font-family: 'Aclonica', sans-serif !important; */
+    font-family: 'Aclonica', sans-serif;
     /* font-family: 'Roboto', sans-serif ; */
     color: #454545;
   }
 
  .content h2, .content h3{
     font-size: 1.7rem;
-    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Aclonica', sans-serif;
  } 
 
   .navbar{
@@ -645,7 +645,7 @@ footer .line{
     bottom: -8rem;
 }
 .content{
-    max-width: 80%;
+    max-width: 90%;
     margin-top: 7rem;
     /* text-align: justify; */
 }
