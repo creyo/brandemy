@@ -1,8 +1,9 @@
 <script>
     import facebook from "$lib/images/facebook.png";
     import twitter from "$lib/images/twitter.svg";
-    import vimeo from "$lib/images/vimeo.svg";
     import youtube from "$lib/images/youtube.svg";
+    import instagram from "$lib/images/instagram.png";
+    import tiktok from "$lib/images/tiktok.png";
     import logo from "$lib/images/footer-logo.png";
 </script>
 
@@ -16,10 +17,11 @@
         <p>Books</p>            
         </div>
         <div class="social flex">
-            <img src={facebook} alt="" height="24px" width="24px">
-            <img src={twitter} alt="" height="24px" width="24px">
-            <img src={vimeo} alt="" height="24px" width="24px">
-            <img src={youtube} alt="" height="24px" width="24px">
+            <a href="https://www.facebook.com/brandemy" target="_blank"><img src={facebook} alt="" height="24px" width="24px"></a>
+            <a href="https://twitter.com/brandemy" target="_blank"><img src={twitter} alt="" height="24px" width="24px"></a>
+            <a href="https://www.instagram.com/brandemycom" target="_blank"><img src={instagram} alt="" height="24px" width="24px"></a>
+            <a href="https://www.youtube.com/@brandemycom" target="_blank"><img src={youtube} alt="" height="24px" width="24px"></a>
+            <a href="/"><img src={tiktok} alt="" height="24px" width="24px"></a>
         </div>
     </div>
     <div class="line"></div>
