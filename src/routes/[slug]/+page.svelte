@@ -15,7 +15,6 @@ let authorName = "";
 let Date = "";
 let image = '';
 let isLoading = true;
-	
 	onMount(async () => {
    if(blog){
     body = blog.body

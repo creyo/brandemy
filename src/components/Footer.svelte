@@ -16,10 +16,10 @@
         <p>Books</p>            
         </div>
         <div class="social flex">
-            <img src={facebook} alt="">
-            <img src={twitter} alt="">
-            <img src={vimeo} alt="">
-            <img src={youtube} alt="">
+            <img src={facebook} alt="" height="24px" width="24px">
+            <img src={twitter} alt="" height="24px" width="24px">
+            <img src={vimeo} alt="" height="24px" width="24px">
+            <img src={youtube} alt="" height="24px" width="24px">
         </div>
     </div>
     <div class="line"></div>

@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 @font-face {
     font-family: 'Product Sans', sans-serif;
     src: url("/src/lib/fonts/Product.ttf");
@@ -242,23 +244,26 @@ footer .social>*, footer p{
     max-width: 700px;
     margin: auto;
     margin-top: 12rem;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .content>*{
     margin-bottom: 1rem;
 }
 .content p, .content li{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
  }
  .content h1{
      font-size: 2rem;
-    font-family: 'Aclonica', sans-serif;
+    /* font-family: 'Aclonica', sans-serif !important; */
+    font-family: 'Roboto', sans-serif ;
     color: #454545;
   }
 
  .content h2, .content h3{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    font-family: 'Roboto', sans-serif;
  } 
 
   .navbar{
@@ -640,15 +645,16 @@ footer .line{
     bottom: -8rem;
 }
 .content{
-    max-width: 300px;
+    max-width: 430px;
     margin-top: 7rem;
-    text-align: justify;
+    /* text-align: justify; */
 }
 .content p, .content li{
-   font-size: 14px;
+   font-size: 16px;
+  
 }
 .content h1{
-    font-size: 15px;
+    font-size: 16px;
  }
  .blog-card h2{
     font-size: 20px;
