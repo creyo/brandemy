@@ -1,5 +1,5 @@
 <script>
-    import logo from '../lib/images/logo.png';
+    import logo from '../lib/images/footer-logo.png';
     import { page } from '$app/stores';
     /**
    * @type {boolean}
@@ -10,6 +10,8 @@
 </script>
 {#if !home}
 <div class="navbar">
-    <img src={logo} alt="">
+    <a href="/">
+    <img src={logo} alt="" width="174px" height="52px">
+</a>
 </div>
 {/if}

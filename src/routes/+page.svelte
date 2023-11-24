@@ -4,7 +4,7 @@
 </svelte:head>
 
 <script>
-	    import logo from "$lib/images/nav-logo.png";
+	    import logo from "$lib/images/logo-header.png";
 	    import hero from "$lib/images/home-hero.png";
 	    import dubicon from "$lib/images/dubicon.png";
 		import bozul from "$lib/images/bozul.png";
@@ -31,7 +31,7 @@
 <div class="container home">
 
 	<div class="home-nav">
-		<img src={logo} alt="" id="mobile-logo">
+		<img src={logo} alt="" id="mobile-logo" width="174px" height="52px">
 		<div>
 			<input id="menu-toggle" type="checkbox" />
 			<label class='menu-button-container' for="menu-toggle">
@@ -42,7 +42,7 @@
 				<li><a href="/blog">Blog</a></li>
 			</ul>
 		</div>
-		<img src={logo} alt="" id="web-logo">
+		<img src={logo} alt="" id="web-logo" width="174px" height="52px">
 		<div class="nav-buttons">
 			<button class="btn btn-light">
 				Login

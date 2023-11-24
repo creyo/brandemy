@@ -27,7 +27,7 @@
     <div class="line"></div>
     <div class="footer-bottom flex">
         <p>All Rights Reserved.</p>
-        <img src={logo} alt=""  height="41px" width="207px">
+        <img src={logo} alt=""  width="174px" height="52px">
         <div class="flex">
             <p>Terms of Service</p>
             <p>Privacy Policy</p>
