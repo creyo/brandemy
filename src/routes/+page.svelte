@@ -30,7 +30,7 @@
 
 <div class="container home">
 
-	<div class="home-nav">
+	<!-- <div class="home-nav">
 		<img src={logo} alt="" id="mobile-logo" width="174px" height="52px">
 		<div>
 			<input id="menu-toggle" type="checkbox" />
@@ -51,7 +51,7 @@
 				Register
 			</button>
 		</div>
-	</div>
+	</div> -->
     <div class="home-hero">
         <h1>Get the right brandname for your Million Dollar Business</h1>
         <p>Here is the Smarter, Faster way to name a <span>Product</span></p>

@@ -26,8 +26,8 @@ const handlePopulation = () => {
 
 </script>
 
-<section class="blogs-hero">
-    <div class="blogs-hero-container container">
+<section class="blogs-hero blog-page-container ">
+    <div class="blogs-hero-container ">
         <div class="hero-text">
             <h1>Brandemy</h1>
             <h3>Your Brand, Instantly Owned</h3>
@@ -54,7 +54,7 @@ const handlePopulation = () => {
 {/if}
 </div>
 <div class="button-div" >
-    <button class="btn btn-dark" style="color: white;" on:click={handlePopulation}>
+    <button class="btn btn-light" style="color: white;" on:click={handlePopulation}>
         More
     </button>
 </div>

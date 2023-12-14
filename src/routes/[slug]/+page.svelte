@@ -12,7 +12,7 @@ let blog = data.data;
 let body = "";
 let title = "";
 let authorName = "";
-let Date = "";
+let date = "";
 let image = '';
 let isLoading = true;
 	onMount(async () => {
@@ -20,7 +20,12 @@ let isLoading = true;
     body = blog.body
     title = blog.title
     authorName = blog.authors.name
-    Date =  blog.date
+    
+    const timestamp =  blog.date
+      const localDate = new Date(timestamp);
+      const options = { day: 'numeric', month: 'short', year: 'numeric' };
+      // @ts-ignore
+      date = localDate.toLocaleDateString('en-US', options);
     image = blog.featured_image
     isLoading = false;
    }
@@ -33,15 +38,19 @@ let isLoading = true;
 <Spinner/>
 {:else}
 {#if blog}
-<section class="blog-hero">
-    <div class="blog-hero-container container">
+<section class="blog-hero blog-page-container">
+    <div class="blog-hero-container">
         <h1>{title}</h1>
-        <div class="flex">
+        <div class="flex web">
             <p>{authorName}</p>
-            <p>{Date}</p>
+            <p>{date}</p>
         </div>
         <div class="blog-image">
             <img src={`https://res.cloudinary.com/creyo-com/image/upload/v1698497773/brandemy/blog/${image}`}  alt="">
+        </div>
+        <div class="flex mob">
+            <p>{authorName}</p>
+            <p>{date}</p>
         </div>
     </div>
 </section>
