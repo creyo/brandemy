@@ -41,18 +41,20 @@ const handlePopulation = () => {
         </div> -->
 
         <div class="featured-blog">
+            <a href= {featured[0].url} >
             <h3>{featured[0].title}</h3>
             <img  src={`https://res.cloudinary.com/creyo-com/image/upload/c_scale,w_375,h_215/v1698497773/brandemy/blog/${featured[0].featured_image}`} alt=""
            
             >
             <p>{featured[0].seo_description}</p>
+        </a>
         </div>
 
         <div class="featured-blog-list mob-none">
             <h3>Featured Posts</h3>
             <ul>
                 {#each featured as blog}
-                <li><a href="{blog.slug}">{blog.title}</a></li>
+                <li><a href={blog.url}>{blog.title}</a></li>
                 {/each}
             </ul>
         </div>
@@ -65,7 +67,7 @@ const handlePopulation = () => {
         <h3>Featured Posts</h3>
         <ul>
             {#each featured as blog}
-            <li><a href="{blog.slug}">{blog.title}</a></li>
+            <li><a href={blog.url}>{blog.title}</a></li>
             {/each}
         </ul>
     </div>
