@@ -13,7 +13,8 @@
  
 <div class="container">
 <div class="home-nav">
-    <img src={logo2} alt="" id="mobile-logo" width="174px" height="52px">
+      <a href="/" id="mobile-logo">
+    <img src={logo2} alt=""  width="174px" height="52px"></a>
     <div>
         <input id="menu-toggle" type="checkbox" />
         <label class='menu-button-container' for="menu-toggle">
@@ -24,8 +25,8 @@
             <li><a href="/blog">Blog</a></li>
         </ul>
     </div>
-    <img src={logo2} alt="" id="web-logo" width="174px" height="52px">
-    <div class="nav-buttons">
+    <a href="/"><img src={logo2} alt="" id="web-logo" width="174px" height="52px"> </a> 
+        <div class="nav-buttons">
         <button class="btn btn-light">
             Login
         </button>

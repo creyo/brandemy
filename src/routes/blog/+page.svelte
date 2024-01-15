@@ -10,8 +10,8 @@ import { onMount } from 'svelte';
 /** @type {import('./$types').PageData} */
 export let data; 
 let currentPopulation = 12
-let featured = data.data.filter(item => item.tag === 'featured')
-let  blogs = data.data.slice(0, currentPopulation);
+let featured = data.data.data.filter(item => item.tag === 'featured')
+let  blogs = data.data.data.slice(0, currentPopulation);
 let isLoading = true;
 
 const handlePopulation = () => {
