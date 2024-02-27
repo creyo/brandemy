@@ -40,7 +40,7 @@ import { supabase } from "$lib/supabaseClient";
 //   };
 // }export async function load({ params }) {
   export async function load({ params }) {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJzaXRlTmFtZSI6IkJyYW5kZW15IiwidXNlcm5hbWUiOiJhbGlSYXphUXVlc2hpIiwicHVibGljYXRpb25faWQiOjMsImlhdCI6MTcwNTMwMzE2OH0.Ofd4j8iWYATg5tcNLflw2d8Su8DyfyFPZzEvgDHuHXo';
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJzaXRlTmFtZSI6IkJyYW5kZW15IiwidXNlcm5hbWUiOiJhbGlSYXphUXVlc2hpIiwicHVibGljYXRpb25faWQiOjMsImlhdCI6MTcwNzM3NDkwM30.OW9Oy7gl-t_TCfL8YQAlVCdxf7NGcFAF61gFwCtXwzk';
     const apiUrl = 'https://wisulbackend.netlify.app/.netlify/functions/index/getwisuldata';
   
     try {
