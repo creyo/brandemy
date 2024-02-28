@@ -11,10 +11,10 @@
     <div class="container">
     <div class="footer-top flex">
         <div class="flex">    
-        <p>About us</p>
-        <p>Discover</p>
-        <p>Contact us</p>
-        <p>Books</p>            
+        <a href="/about-us">About us</a>
+        <a href="/about-us">Discover</a>
+        <a href="/about-us">Contact us</a>
+        <a href="/about-us">Books</a>
         </div>
         <div class="social flex">
             <a href="https://www.facebook.com/brandemy" target="_blank"><img src={facebook} alt="" height="24px" width="24px"></a>
@@ -29,8 +29,8 @@
         <p>All Rights Reserved.</p>
         <img src={logo} alt=""  width="174px" height="52px">
         <div class="flex">
-            <p>Terms of Service</p>
-            <p>Privacy Policy</p>
+            <a href="/about-us">Terms of Service</a>
+            <a href="/privacy-policy">Privacy Policy</a>
         </div>
     </div>
 </div>

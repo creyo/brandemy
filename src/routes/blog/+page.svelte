@@ -16,7 +16,7 @@ let isLoading = true;
 
 const handlePopulation = () => {
     currentPopulation += 12;
-    blogs = data.data.slice(0, currentPopulation);
+    blogs = data.data.data.slice(0, currentPopulation);
 }
 
 
