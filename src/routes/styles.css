@@ -771,10 +771,12 @@ footer .social>*, footer p, footer a{
 @media(max-width: 479px) {
     .container{
     width: 350px;
+    margin: auto 0;
 }
 .blogs-hero{
     flex-direction: column;
     border-radius: 0px;
+    height: 500px;
     /* background: url(images/blog-hero.png) no-repeat center center; */
 }
 .mob{
@@ -800,6 +802,7 @@ footer .social>*, footer p, footer a{
 }
 .blogs-grid{
     grid-template-columns: 1fr;
+    margin-top: 3rem;
 }
 
 .menu-button,
@@ -838,7 +841,7 @@ footer .line{
     background-color: #D1D1D1;
 }
 .line{
-    width: 350px;
+    width: 300px;
     margin-top: 1rem;
 }
 .social{
@@ -858,7 +861,9 @@ footer .line{
  .blog-hero-container>*{
   margin-bottom: 1rem;
 }
-
+.blog-card>*{
+  padding: 0 10px;
+}
  .blog-image img{
     border:none;
     border-radius: 10px;
@@ -1123,13 +1128,22 @@ footer .line{
     height: 215px ;
     width: 375px ;
   }
+  .featured-blog h3{
+    margin: 10px 0;
+    padding-left: 10px;
+  }
+  .featured-blog p {
+    padding-left: 10px;
+  }
   .featured-blog{
     margin-right: 0;
+    padding: 0;
   }
 
   .featured-blog-list{
     padding-top: 1rem ;
     margin-left: 0;
+    padding: 1rem;
   }
   .featured-blog-list h3{
     font-size: 18px;

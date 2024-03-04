@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Brandemy | Blogs</title>
+    <title>Brandemy | Blog</title>
 </svelte:head>
 <script>
 // @ts-nocheck
@@ -9,14 +9,16 @@ import cardImg from '$lib/images/blog-hero.png';
 import { onMount } from 'svelte';
 /** @type {import('./$types').PageData} */
 export let data; 
+let blogData = data.data.data.filter(item => item.post_type.type_name === 'Blog')
+// console.log(blogData)
 let currentPopulation = 12
-let featured = data.data.data.filter(item => item.tag === 'featured')
-let  blogs = data.data.data.slice(0, currentPopulation);
+let featured = blogData.filter(item => item.tag === 'featured')
+let  blogs = blogData.slice(0, currentPopulation);
 let isLoading = true;
 
 const handlePopulation = () => {
     currentPopulation += 12;
-    blogs = data.data.data.slice(0, currentPopulation);
+    blogs = blogData.slice(0, currentPopulation);
 }
 
 
