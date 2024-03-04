@@ -770,7 +770,7 @@ footer .social>*, footer p, footer a{
   }
 @media(max-width: 479px) {
     .container{
-    width: 350px;
+    width: 99%;
     margin: auto 0;
 }
 .blogs-hero{
@@ -823,6 +823,10 @@ footer .social>*, footer p, footer a{
 .blogs-hero-container .hero-para{
     width: 100%;
     font-size: 1rem;
+}
+.blog-card img{
+  width: 99%;
+  height: 99%;
 }
 .blogs-hero-container {
   padding: 0;
@@ -1125,14 +1129,18 @@ footer .line{
     flex-direction: column;
   }
   .featured-blog img{
-    height: 215px ;
-    width: 375px ;
+    height: 200px ;
+    width: 97% ;
+    padding-left: 10px;
+    border-radius: 30px;
   }
   .featured-blog h3{
     margin: 10px 0;
     padding-left: 10px;
   }
   .featured-blog p {
+    width: 96%;
+    text-align: justify;
     padding-left: 10px;
   }
   .featured-blog{
