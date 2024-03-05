@@ -89,6 +89,51 @@ body{
   margin-top: 1rem;
 }
 
+.forgot-pass{
+  color: #757575;
+  align-self: flex-end;
+  margin-top: 10px;
+}
+.login-register-form{
+  /* margin: 2rem 0; */
+  margin: auto;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-family: 'Product Sans', sans-serif;
+  width: 50%;
+}
+.login-register-form div{
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-register-form label{
+  color: #757575;
+  margin-right: 1rem;
+}
+.login-register-form input{
+  border-radius: 3px;
+background: #e7e3e3;
+border: none;
+width: 50%;
+height: 40px;
+}
+.login-register-form input[type='radio']{
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.login-register-form .btn{
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+}
+
 .blog-hero{
     height: 600px;
     /* background: url(/src/lib/images/Card.png) no-repeat center center; */
@@ -305,14 +350,31 @@ body{
     background-color: #3E001F;
     color: white;
   }
+  .btn-dark a{
+    color: #3E001F;
+  }
+  .btn-dark:hover a{
+    color: white;
+  }
 
   .btn-light{
     background-color: #3E001F;
     color: white;
   }
+  .btn-light a{
+    color: white;
+  }
+
+  .btn a{
+    text-decoration: none;
+  }
+ 
 
   .btn-light:hover{
     background-color: #EFB027;
+    color: #3E001F;
+  }
+  .btn-light:hover a{
     color: #3E001F;
   }
 
@@ -1094,7 +1156,11 @@ footer .line{
     border-bottom: 1px solid white;
 
   }
-
+  .login-register-form{
+    width: 90%;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
   .blog-page-container{
     width: 100%;
   }

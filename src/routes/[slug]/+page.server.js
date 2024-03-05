@@ -42,7 +42,44 @@ import { supabase } from "$lib/supabaseClient";
   export async function load({ params }) {
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJzaXRlTmFtZSI6IkJyYW5kZW15IiwidXNlcm5hbWUiOiJhbGlSYXphUXVlc2hpIiwicHVibGljYXRpb25faWQiOjMsImlhdCI6MTcwNzM3NDkwM30.OW9Oy7gl-t_TCfL8YQAlVCdxf7NGcFAF61gFwCtXwzk';
     const apiUrl = 'https://wisulbackend.netlify.app/.netlify/functions/index/getwisuldata';
-  
+    const otherApiUrl = 'https://wisulbackend.netlify.app/.netlify/functions/index/brandemydata';
+    
+    const getBrandData = async () => {
+      // console.log('getBrandData');
+      try {
+        const res = await fetch(otherApiUrl, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+  }})
+  const data = await res.json();
+ 
+      if (res.status !== 200) {
+        console.error(`Error fetching data: ${res.status}`);
+        return {
+          status: res.status,
+          error: new Error('Internal Server Error'),
+        };
+      }
+      const brand = data.msg.filter(item => item.brand_name === params.slug)[0];
+      // console.log('brand', brand);
+      if (!brand) {
+          return {
+          status: 404,
+          error: new Error('Blog post not found'),
+        };
+      }
+      return {
+        data:brand,
+      }
+}
+  catch (error) {
+    console.error('Error fetching data:', error);
+    return {
+      status: 500,
+      error: new Error('Internal Server Error'),
+    }}
+}
     try {
       const res = await fetch(apiUrl, {
         method: 'GET',
@@ -65,10 +102,19 @@ import { supabase } from "$lib/supabaseClient";
       const article = data.data.filter(item => item.url === params.slug)[0];
   
       if (!article) {
-        return {
-          status: 404,
-          error: new Error('Blog post not found'),
-        };
+        // If article is not found, try fetching brand data
+        const brandDataResult = await getBrandData();
+  
+        if (brandDataResult.status === 404) {
+          // Brand data not found, return article not found
+          return {
+            status: 404,
+            error: new Error('Blog post not found'),
+          };
+        }
+  
+        // Brand data found, return brand data
+        return brandDataResult;
       }
   
       return {
@@ -81,5 +127,40 @@ import { supabase } from "$lib/supabaseClient";
         error: new Error('Internal Server Error'),
       };
     }
+
+//     const getBrandData = async () => {
+//       try {
+//         const res = await fetch(otherApiUrl, {
+//           method: 'GET',
+//           headers: {
+//             'Content-Type': 'application/json',
+//   }})
+//   const data = await res.json();
+  
+//       if (res.status !== 200) {
+//         console.error(`Error fetching data: ${res.status}`);
+//         return {
+//           status: res.status,
+//           error: new Error('Internal Server Error'),
+//         };
+//       }
+//       const brand = data.data.filter(item => item.url === params.slug)[0];
+//       if (!brand) {
+//           return {
+//           status: 404,
+//           error: new Error('Blog post not found'),
+//         };
+//       }
+//       return {
+//         data: brand,
+//       }
+// }
+//   catch (error) {
+//     console.error('Error fetching data:', error);
+//     return {
+//       status: 500,
+//       error: new Error('Internal Server Error'),
+//     }}
+// }
   }
   

@@ -35,10 +35,12 @@
     <a href="/"><img src={logo2} alt="" id="web-logo" width="174px" height="52px"> </a> 
         <div class="nav-buttons">
         <button class="btn btn-light">
-            Login
+            <a href="/login">
+            Login</a>
         </button>
         <button class="btn btn-dark">
-            Register
+            <a href="/register">
+            Register</a>
         </button>
     </div>
 </div></div> 
