@@ -21,6 +21,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/supabase-js": "^2.38.3"
+		"@auth/core": "^0.28.0",
+		"@auth/sveltekit": "^0.14.0",
+		"@beyonk/svelte-social-auth": "^3.0.0",
+		"@supabase/supabase-js": "^2.38.3",
+		"google-auth-library": "^9.6.3"
 	}
 }

@@ -3,6 +3,9 @@
 </svelte:head>
 
 <script>
+    import google from '$lib/images/google.png';
+    import facebook from '$lib/images/facebook-icon.png';
+    import twitter from '$lib/images/twitter-icon.png';
  // @ts-ignore
 const submitForm = async(e) => {
     e.preventDefault();
@@ -21,6 +24,7 @@ const submitForm = async(e) => {
     console.log(response);
     form.reset();
 }
+
 </script>
 
 <section class="container">
@@ -40,5 +44,10 @@ const submitForm = async(e) => {
     <button class="btn btn-dark">
        Register
     </button>
-</form>    
+    <span class="social-icons">
+        <img src={google} alt="">
+        <img src={twitter} alt="">
+        <img src={facebook} alt="">
+    </span>
+</form>  
 </section>

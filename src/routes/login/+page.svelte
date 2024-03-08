@@ -4,7 +4,10 @@
 
 <script>
   import { redirect } from "@sveltejs/kit";
-
+  import google from '$lib/images/google.png';
+    import facebook from '$lib/images/facebook-icon.png';
+    import twitter from '$lib/images/twitter-icon.png';
+ // @ts-ignore
     // @ts-ignore
 const submitForm = async(e) => {
     e.preventDefault();
@@ -41,6 +44,11 @@ const submitForm = async(e) => {
     <button class="btn btn-dark">
        Login
     </button>
+    <span class="social-icons">
+        <img src={google} alt="">
+        <img src={twitter} alt="">
+        <img src={facebook} alt="">
+    </span>
     <p  class="forgot-pass">Forgot Password?</p>
 </form>    
 </section>

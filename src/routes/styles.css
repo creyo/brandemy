@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 @font-face {
     font-family: 'Product Sans', sans-serif;
@@ -536,7 +537,14 @@ footer .social>*, footer p, footer a{
     align-items: center;
     height: 100%;
   }
-  
+  .social-icons{
+    display: flex ;
+   justify-content: space-evenly;
+   margin-top: 1rem;
+   background-color: #FFECF5;
+    padding: 7px;
+    border-radius: 20px;
+ }
   .spinner {
     border: 4px solid rgba(0, 0, 0, 0.3);
     border-top: 4px solid  #E07A5F;
@@ -830,7 +838,174 @@ footer .social>*, footer p, footer a{
       transform: rotate(360deg);
     }
   }
-@media(max-width: 479px) {
+
+
+  .dashboard{
+    font-family: "Inter", sans-serif;
+    color: #404040;
+    background-color: #FFFAEE;
+    padding: 2rem;
+  }
+
+  .profile-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    font-size: 20px;
+  }
+
+   .profile-info .profile-name{
+    color: #B2B2B2; 
+    margin: 0 1rem;
+      }
+
+   .profile-info .draw-para{
+    color: #EFB027;
+    width: 40%; 
+  }
+
+    .profile-info .draw-para span{
+      color: #3E001F;
+    }
+
+    .suggested-brands{
+      margin: 4rem 0 2rem 0; 
+    }
+
+    .suggested-brands .suggested-brands-heading{
+      font-size: 20px;
+      margin-bottom: 3rem;
+    }
+
+    .brands-grid{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .suggested-brands .btn{
+      background-color: white;
+      border: 1px solid #414141;
+      /* font-size: 18px; */
+      padding: 5px 10px;
+      border-radius: 10px;
+      height: 50px;
+      width: 150px;
+      margin-left: 4rem;
+    }
+
+    .get-suggestion .btn{
+      background-color: white;
+      border: 1px solid #414141;
+      /* font-size: 18px; */
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+    .get-suggestion .btn img{
+      margin-right: 10px;
+    }
+    .suggested-brands .btn .flex{
+      justify-content: space-around;
+    }
+
+    .dashboard-brand-card{
+      background-color: white;
+      padding: 10px;
+      border-radius: 10px;
+      margin-right: 10px;
+    }
+
+    .suggested-brands .selected-card{
+      background-color: #EFB027;
+    }
+
+    .dashboard-brand-card .logo-div-passiveday{
+      background-color: #FFF2F8;
+      color: #F7B1D0;
+    }
+    .dashboard-brand-card .logo-div-jumji{
+      background-color: #EDF3FF;
+      color: #96B9FF;
+    }
+    .dashboard-brand-card .logo-div-appsala{
+      background-color: #FFF1F1;
+      color: #F8B8B8;
+    }
+    .dashboard-brand-card .logo-div-holuj{
+      background-color: #FFFAEE;
+      color: #F0CA79;
+    }
+    .dashboard-brand-card .logo-div{
+      padding: 2rem;
+      margin: 1rem 0;
+      position: relative;
+      border-radius: 10px;
+    }
+
+    .dashboard-brand-card .logo-div img{
+      width: 70%;
+      height: 70%;
+      margin-left: 15px;
+    }
+
+    .dashboard-brand-card .logo-div p{
+      font-size: 14px;
+      text-align: right;
+      position: relative;
+      right: -20px;
+      bottom: -25px;
+    }
+
+    .dashboard-brand-card .voted{
+      font-size: 16px;
+    }
+    .dashboard-brand-card .brand-name{
+      font-size: 20px;
+    }
+
+    .dashboard .brand-section-heading{
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .get-suggestion{
+      margin-top: 4rem;
+      font-size: 20px;
+    }
+
+    .purchased-brands{
+      margin-top: 4rem;
+    }
+
+    .purchased-brands .brands-grid{
+      margin-top: 3rem;
+    }
+    .get-suggestion>*{
+      margin: 2rem 0;
+    }
+
+    .get-suggestion .get-suggestion-first-child{
+      width: 40%;
+    }
+
+    .get-suggestion .suggested-email{
+      padding: 10px;
+      background-color: white;
+      border-radius: 10px;
+      color: #B2B2B2;
+      margin-right: 10px;
+    }
+    .get-suggestion .suggested-email p{
+      margin-right: 10px;
+    }
+
+    .get-suggestion .your-email{
+      padding: 10px;
+      background-color: white;
+      border-radius: 10px;
+    }
+  @media(max-width: 479px) {
     .container{
     width: 99%;
     margin: auto 0;
@@ -913,6 +1088,7 @@ footer .line{
 .social{
     margin-top: 2rem;
 }
+
 .blog-hero-container h1{
     margin-top: 1rem;
     font-size: 1.2rem;
