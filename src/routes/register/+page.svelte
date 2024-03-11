@@ -6,6 +6,8 @@
     import google from '$lib/images/google.png';
     import facebook from '$lib/images/facebook-icon.png';
     import twitter from '$lib/images/twitter-icon.png';
+    import { supabase } from "$lib/supabaseClient";
+  import { redirect } from '@sveltejs/kit';
  // @ts-ignore
 const submitForm = async(e) => {
     e.preventDefault();
@@ -24,6 +26,28 @@ const submitForm = async(e) => {
     console.log(response);
     form.reset();
 }
+
+const handleGoogleAuth = async () => {
+    try {
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+      });
+
+      if (error) {
+        console.error('Google login error:', error.message);
+      } else {
+        // @ts-ignore
+        localStorage.setItem('sb-czlpeqcpksfalvtmrulq-auth-token', data.user.access_token);
+        // console.log(data.user)
+        // @ts-ignore
+        // redirect("/", 200);
+      }
+    } catch (error) {
+      // @ts-ignore
+      console.error('Google login error:', error.message);
+    }
+  };
+
 
 </script>
 
@@ -45,9 +69,10 @@ const submitForm = async(e) => {
        Register
     </button>
     <span class="social-icons">
-        <img src={google} alt="">
         <img src={twitter} alt="">
         <img src={facebook} alt="">
     </span>
 </form>  
+
+<button on:click={()=> handleGoogleAuth()}> <img src={google} alt=""></button>
 </section>
