@@ -3,20 +3,36 @@
 </svelte:head>
 
 <script>
+// @ts-nocheck
   import { redirect } from "@sveltejs/kit";
   import google from '$lib/images/google.png';
     import facebook from '$lib/images/facebook-icon.png';
     import twitter from '$lib/images/twitter-icon.png';
     import { supabase } from "$lib/supabaseClient";
- // @ts-ignore
-    // @ts-ignore
+    import { goto } from '$app/navigation';
+
+    let email;
+  let password;
+
+  const  isValidEmail = (email) => {
+    // Regular expression for validating email addresses
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
 const submitForm = async(e) => {
-    e.preventDefault();
+  if(!password || !email){
+    return window.alert('Please fill properly')
+  }
+  if(!isValidEmail(email)){
+    return window.alert("Not a Valid Email")
+  }
     const apiURL = 'https://wisulbackend.netlify.app/.netlify/functions/index/brandemy_login'
     const form = e.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    const res =  await fetch(apiURL, {
+    try{
+      const res =  await fetch(apiURL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -24,11 +40,16 @@ const submitForm = async(e) => {
         body: JSON.stringify(data)
     })
     const response = await res.json();
-    console.log(response);
-    // form.reset();
-    window.location.href = '/dashboard';
-    // @ts-ignore
-    // throw redirect(201,'/dashboard');
+   
+    if(response.status){
+      console.log(response);
+      goto('/dashboard');
+    }
+    console.log(response)
+    }
+   catch(error){
+    console.log(error)
+   }
 }
 const handleGoogleAuth = async () => {
     try {
@@ -40,10 +61,12 @@ const handleGoogleAuth = async () => {
         console.error('Google login error:', error.message);
       } else {
         // @ts-ignore
-        // localStorage.setItem('sb-czlpeqcpksfalvtmrulq-auth-token', data.user.access_token);
-        console.log(data.user)
+        localStorage.setItem('sb-czlpeqcpksfalvtmrulq-auth-token', data.user.access_token);
+        console.log(data)
         // @ts-ignore
         // redirect("/", 200);
+        
+    // window.location.href = '/dashboard';
       }
     } catch (error) {
       // @ts-ignore
@@ -57,22 +80,24 @@ const handleGoogleAuth = async () => {
 <form on:submit|preventDefault={submitForm} class="login-register-form">
     <div>
         <label for="email">Email</label>
-        <input type="text" name="email" id="">
+        <input type="text" name="email" bind:value={email}>
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="text" name="password" id="">
+        <input type="password" name="password" bind:value={password}>
     </div>
     <button class="btn btn-dark">
        Login
     </button>
-    <span class="social-icons">
+    <!-- <span class="social-icons">
         <img src={google} alt="">
         <img src={twitter} alt="">
         <img src={facebook} alt="">
-    </span>
-    <p  class="forgot-pass">Forgot Password?</p>
+    </span> -->
+    <a  class="forgot-pass" href="/login/forget-password">Forgot Password?</a>
 </form>   
-
-<button on:click={()=> handleGoogleAuth()}> <img src={google} alt=""></button> 
+<div class="google-auth">
+  <h1>Login with Google</h1>    
+  <button on:click={()=> handleGoogleAuth()}> <img src={google} alt=""></button> 
+</div>
 </section>
