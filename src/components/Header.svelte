@@ -1,21 +1,22 @@
 <script>
-  
-    import logo from "$lib/images/logo-header.png";
     import logo2 from "$lib/images/footer-logo.png";
-    import { page } from '$app/stores';
-    /**
-   * @type {boolean}
-   */
-    // let home;
-    // $page.url.pathname === '/' ? home = true : home = false;
+    import { logged_in, current_user } from "$lib/store";
+    import { goto } from "$app/navigation";
     
-  let isChecked = false;
+    let isChecked = false;
+    
 
-    // @ts-ignore
     const menuItemClicked = () => {
-        console.log('clicked');
         isChecked = false;
+    }    
+
+    const handleLogout = () =>{
+        logged_in.set(false)
+        current_user.set({})
+        localStorage.removeItem('Brandemy_Token')
+        goto('/')
     }
+
 </script>
  
 <div class="container">
@@ -34,6 +35,15 @@
     </div>
     <a href="/"><img src={logo2} alt="" id="web-logo" width="174px" height="52px"> </a> 
         <div class="nav-buttons">
+        {#if $logged_in}
+        <button class="btn btn-dark" on:click={handleLogout}>
+            Logout
+        </button>
+        <button class="btn btn-light">
+            <a href="/dashboard">
+            Dashboard</a>
+        </button>
+        {:else}
         <button class="btn btn-light">
             <a href="/login">
             Login</a>
@@ -42,5 +52,7 @@
             <a href="/register">
             Register</a>
         </button>
+        {/if}
+       
     </div>
 </div></div> 

@@ -35,7 +35,8 @@
           // Handle the response as needed
           if (response.ok) {
             console.log('Email verification successful');
-            goto('/dashboard'); 
+            console.log(response)
+            // goto('/dashboard'); 
           } else {
             console.error('Email verification failed', response);
           }

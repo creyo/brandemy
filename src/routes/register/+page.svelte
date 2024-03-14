@@ -10,10 +10,18 @@
     import twitter from '$lib/images/twitter-icon.png';
     import { supabase } from "$lib/supabaseClient";
     import { goto } from '$app/navigation';
+    import { logged_in } from '$lib/store';
+    import { onMount } from 'svelte';
   let msg;
   let name;
   let email;
   let password;
+
+  onMount(()=>{
+    if($logged_in){
+      goto('/dashboard')
+    }
+  })
 
   const  isValidEmail = (email) => {
     // Regular expression for validating email addresses

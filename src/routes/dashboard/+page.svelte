@@ -16,6 +16,16 @@
     import link from '$lib/images/link.png'
     import send from '$lib/images/send.png'
     import drive from '$lib/images/drive.png'
+    import like from '$lib/images/like.png'
+    import { onMount } from 'svelte'
+    import { goto } from '$app/navigation'
+    import { logged_in, current_user } from '$lib/store'
+    onMount(()=>{
+    if(!$logged_in){
+      goto('/login')
+    }
+  })
+
 </script>
 
 <section class="dashboard">
@@ -24,12 +34,15 @@
 <div class="profile-info">
     <div class="flex">
         <img src={person} alt="">
-        <p class="profile-name">Your Name</p>    
+        <p class="profile-name">{
+            $current_user.name
+            }</p>    
     </div>
     <p class="draw-para">
         You have been entered for a draw!! to win a free brand name. Get more chances by <span>clicking here</span> 
     </p>
     </div>
+
 
     <div class="suggested-brands">
         <p class="suggested-brands-heading">Shorlisted brands by you (5)</p>
@@ -97,6 +110,64 @@
                     <p>Add More</p>
                 </div>
             </button>
+        </div>
+    </div>
+
+    <div class="comments-div">
+        <p class="brand-section-heading">Comments</p>  
+        <div class="comments-line"></div>
+        <div class="dashboard-comments">
+            <div class="comment-div">
+                <div class="flex">
+                    <div class="flex dp-name">
+                        <img src={person} alt="user-dp">
+                        <p class="comment-user">Ali Raza</p>
+                    </div>
+                    <p class="comment-time">10 min ago</p>
+                </div>
+                <p class="comment margin-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptates?</p>
+               <div class="flex like-reply margin-left">
+                <div class="flex likes">
+                    <img src={like} alt="">
+                    <p>255</p>
+                </div>
+                <p>Reply</p>
+               </div>
+            </div>
+            <div class="comment-div">
+                <div class="flex">
+                    <div class="flex dp-name">
+                        <img src={person} alt="user-dp">
+                        <p class="comment-user">Ali Raza</p>
+                    </div>
+                    <p class="comment-time">10 min ago</p>
+                </div>
+                <p class="comment margin-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptates?</p>
+               <div class="flex like-reply margin-left">
+                <div class="flex likes">
+                    <img src={like} alt="">
+                    <p>255</p>
+                </div>
+                <p>Reply</p>
+               </div>
+            </div>
+            <div class="comment-div">
+                <div class="flex">
+                    <div class="flex dp-name">
+                        <img src={person} alt="user-dp">
+                        <p class="comment-user">Ali Raza</p>
+                    </div>
+                    <p class="comment-time">10 min ago</p>
+                </div>
+                <p class="comment margin-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptates?</p>
+               <div class="flex like-reply margin-left">
+                <div class="flex likes">
+                    <img src={like} alt="">
+                    <p>255</p>
+                </div>
+                <p>Reply</p>
+               </div>
+            </div>
         </div>
     </div>
 

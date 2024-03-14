@@ -906,7 +906,43 @@ footer .social>*, footer p, footer a{
       font-size: 20px;
       margin-bottom: 3rem;
     }
+    .comments-div{
+      margin: 4rem 0;
+    }
+    .comments-line{
+      border-bottom: 1px solid #EFB027;
+      margin: 1rem 0;
+    }
 
+    .comment-div img[alt="user-dp"]{
+      width: 30%;
+      height: 30%;
+    }
+    .comment-div >*{
+      margin-bottom: 1rem;
+    }
+    .comment-div{
+      margin: 2rem 4rem;
+      font-weight: 500;
+    }
+    .comment-div .likes img{
+      margin-right: 10px;
+    }
+    .comment-div .like-reply{
+      width: 15%;
+    }
+
+    .margin-left{
+      margin-left: 2.5rem;
+    }
+
+    .comment-div .dp-name{
+      width: 10%;
+    }
+
+    .comment-div .comment-time{
+      color: #EFB027;
+    }
     .brands-grid{
       display: grid;
       grid-template-columns: repeat(5, 1fr);

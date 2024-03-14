@@ -10,9 +10,17 @@
     import twitter from '$lib/images/twitter-icon.png';
     import { supabase } from "$lib/supabaseClient";
     import { goto } from '$app/navigation';
+    import { logged_in , current_user } from "$lib/store";
+  import { onMount } from "svelte";
 
     let email;
   let password;
+
+  onMount(()=>{
+    if($logged_in){
+      goto('/dashboard')
+    }
+  })
 
   const  isValidEmail = (email) => {
     // Regular expression for validating email addresses
@@ -42,10 +50,13 @@ const submitForm = async(e) => {
     const response = await res.json();
    
     if(response.status){
-      console.log(response);
+      localStorage.setItem("Brandemy_Token", response.token)
+      logged_in.set(true)
+      current_user.set(response.user)
+      // console.log(response);
       goto('/dashboard');
     }
-    console.log(response)
+    // console.log(response)
     }
    catch(error){
     console.log(error)
