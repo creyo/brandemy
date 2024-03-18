@@ -15,11 +15,16 @@
 
     let email;
   let password;
+  let google_token;
+
 
   onMount(()=>{
     if($logged_in){
       goto('/dashboard')
     }
+    
+    google_token=localStorage.getItem('sb-vswslypjtkwyzainjgzn-auth-token')
+    console.log(google_token)
   })
 
   const  isValidEmail = (email) => {
