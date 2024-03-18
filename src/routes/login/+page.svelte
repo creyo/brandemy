@@ -18,16 +18,35 @@
   let google_token;
 
 
-  onMount(()=>{
+  onMount(async()=>{
     if($logged_in){
       goto('/dashboard')
     }
     
     google_token=JSON.parse(localStorage.getItem('sb-vswslypjtkwyzainjgzn-auth-token'))
-    // console.log(google_token.user.access_token)
-    // console.log(google_token.access_token)
-    console.log(google_token.access_token)
-    // console.log(google_token)
+    
+    if(google_token){
+      const apiURL = 'https://wisulbackend.netlify.app/.netlify/functions/index/signupwithgoogle'
+      try{
+        const res =  await fetch(apiURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${google_token.access_token}`,
+        },
+    })
+      const response = await res.json();
+      if(response.status){
+      localStorage.setItem("Brandemy_Token", response.token)
+      logged_in.set(true)
+      console.log(response)
+      current_user.set(response.user)
+      goto('/dashboard');
+    }
+      }catch(error){
+        console.error(error)
+      }
+    }
   })
 
   const  isValidEmail = (email) => {
