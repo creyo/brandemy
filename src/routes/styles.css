@@ -111,6 +111,10 @@ body{
   align-self: flex-end;
   margin-top: 10px;
 }
+
+.forgot-pass:hover{
+  color: #3E001F;
+}
 .login-register-form{
   /* margin: 2rem 0; */
   margin: auto;

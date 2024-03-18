@@ -3,13 +3,20 @@
 </svelte:head>
 
 <script>
+// @ts-nocheck
+
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
     import Spinner from '../../../components/Spinner.svelte';
+    // @ts-ignore
+    import { logged_in , current_user } from "$lib/store";
   
     let token;
   
     onMount(() => {
+      if($logged_in){
+      goto('/dashboard')
+    }
       // Extract the token from the URL
       const urlParams = new URLSearchParams(window.location.search);
       token = urlParams.get('token');
@@ -36,7 +43,9 @@
           if (response.ok) {
             console.log('Email verification successful');
             console.log(response)
-            // goto('/dashboard'); 
+            localStorage.setItem("Brandemy_Token", response.token) 
+            logged_in.set(true)
+            current_user.set(response.user)
           } else {
             console.error('Email verification failed', response);
           }

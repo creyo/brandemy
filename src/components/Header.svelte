@@ -39,19 +39,12 @@
         <button class="btn btn-dark" on:click={handleLogout}>
             Logout
         </button>
-        <button class="btn btn-light">
-            <a href="/dashboard">
-            Dashboard</a>
-        </button>
+        <a href="/dashboard">
+        <button class="btn btn-light">Dashboard</button></a>
         {:else}
-        <button class="btn btn-light">
-            <a href="/login">
-            Login</a>
-        </button>
-        <button class="btn btn-dark">
-            <a href="/register">
-            Register</a>
-        </button>
+        <a href="/login">
+        <button class="btn btn-light">Login</button></a>
+        <a href="/register"> <button class="btn btn-dark">Register</button></a>
         {/if}
        
     </div>

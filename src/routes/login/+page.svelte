@@ -52,11 +52,10 @@ const submitForm = async(e) => {
     if(response.status){
       localStorage.setItem("Brandemy_Token", response.token)
       logged_in.set(true)
+      console.log(response)
       current_user.set(response.user)
-      // console.log(response);
       goto('/dashboard');
     }
-    // console.log(response)
     }
    catch(error){
     console.log(error)
@@ -71,16 +70,9 @@ const handleGoogleAuth = async () => {
       if (error) {
         console.error('Google login error:', error.message);
       } else {
-        // @ts-ignore
-        localStorage.setItem('sb-czlpeqcpksfalvtmrulq-auth-token', data.user.access_token);
-        console.log(data)
-        // @ts-ignore
-        // redirect("/", 200);
-        
-    // window.location.href = '/dashboard';
+        goto('http:localhost:5173/login')
       }
     } catch (error) {
-      // @ts-ignore
       console.error('Google login error:', error.message);
     }
   };

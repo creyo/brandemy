@@ -14,7 +14,6 @@
         <a href="/about-us">About us</a>
         <a href="/about-us">Discover</a>
         <a href="/about-us">Contact us</a>
-        <a href="/about-us">Books</a>
         </div>
         <div class="social flex">
             <a href="https://www.facebook.com/brandemy" target="_blank"><img src={facebook} alt="" height="24px" width="24px"></a>
