@@ -12,10 +12,13 @@
     import { goto } from '$app/navigation';
     import { logged_in , current_user } from "$lib/store";
   import { onMount } from "svelte";
+  import Spinner from "../../components/Spinner.svelte";
+  import { load } from "../[slug]/proxy+page.server";
 
     let email;
   let password;
   let google_token;
+  let loading = false;
 
 
   onMount(async()=>{
@@ -26,6 +29,7 @@
     google_token=JSON.parse(localStorage.getItem('sb-vswslypjtkwyzainjgzn-auth-token'))
     
     if(google_token){
+      loading = true;
       const apiURL = 'https://wisulbackend.netlify.app/.netlify/functions/index/signupwithgoogle'
       try{
         const res =  await fetch(apiURL, {
@@ -37,10 +41,12 @@
     })
       const response = await res.json();
       if(response.status){
+      
       localStorage.setItem("Brandemy_Token", response.token)
       logged_in.set(true)
       console.log(response)
       current_user.set(response.user)
+      loading = false
       goto('/dashboard');
     }
       }catch(error){
@@ -108,6 +114,9 @@ const handleGoogleAuth = async () => {
 </script>
 
 <section class="container">
+{#if loading}
+<Spinner/>
+{:else}
 <form on:submit|preventDefault={submitForm} class="login-register-form">
     <div>
         <label for="email">Email</label>
@@ -131,4 +140,5 @@ const handleGoogleAuth = async () => {
   <h1>Login with Google</h1>    
   <button on:click={()=> handleGoogleAuth()}> <img src={google} alt=""></button> 
 </div>
+{/if}
 </section>
