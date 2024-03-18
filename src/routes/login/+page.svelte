@@ -25,6 +25,9 @@
     
     google_token=localStorage.getItem('sb-vswslypjtkwyzainjgzn-auth-token')
     console.log(google_token.user.access_token)
+    console.log(google_token.access_token)
+    console.log(google_token.data.user.access_token)
+    console.log(google_token)
   })
 
   const  isValidEmail = (email) => {
@@ -75,8 +78,8 @@ const handleGoogleAuth = async () => {
       if (error) {
         console.error('Google login error:', error.message);
       } else {  
-        console.log('User:', user);
-        console.log('Session:', session);
+        // console.log('User:', user);
+        // console.log('Session:', session);
       }
     } catch (error) {
       console.error('Google login error:', error.message);
