@@ -27,6 +27,8 @@
     // console.log(google_token.user.access_token)
     // console.log(google_token.access_token)
     console.log(google_token)
+    console.log(google_token.provider_token)
+    console.log(google_token.access_token)
     // console.log(google_token)
   })
 
