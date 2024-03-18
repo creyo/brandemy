@@ -24,7 +24,7 @@
     }
     
     google_token=localStorage.getItem('sb-vswslypjtkwyzainjgzn-auth-token')
-    console.log(google_token)
+    console.log(google_token.access_token)
   })
 
   const  isValidEmail = (email) => {
