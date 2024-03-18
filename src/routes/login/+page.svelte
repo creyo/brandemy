@@ -26,9 +26,7 @@
     google_token=localStorage.getItem('sb-vswslypjtkwyzainjgzn-auth-token')
     // console.log(google_token.user.access_token)
     // console.log(google_token.access_token)
-    console.log(google_token)
-    console.log(google_token.provider_token)
-    console.log(google_token.access_token)
+    console.log(JSON.parse(google_token))
     // console.log(google_token)
   })
 
