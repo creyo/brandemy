@@ -68,14 +68,15 @@ const submitForm = async(e) => {
 }
 const handleGoogleAuth = async () => {
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { user, session, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
       });
 
       if (error) {
         console.error('Google login error:', error.message);
-      } else {
-        // goto('http:localhost:5173/login')
+      } else {  
+        console.log('User:', user);
+        console.log('Session:', session);
       }
     } catch (error) {
       console.error('Google login error:', error.message);
