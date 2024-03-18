@@ -70,7 +70,7 @@ const handleGoogleAuth = async () => {
       if (error) {
         console.error('Google login error:', error.message);
       } else {
-        goto('http:localhost:5173/login')
+        // goto('http:localhost:5173/login')
       }
     } catch (error) {
       console.error('Google login error:', error.message);
