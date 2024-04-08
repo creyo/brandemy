@@ -12,7 +12,7 @@
 		import orango from "$lib/images/orango.png";
 		import teralin from "$lib/images/teralin.png";
 		import huzzay from "$lib/images/huzzay.png";
-		import hajray from "$lib/images/hajray.png";
+		import hajry from "$lib/images/hajry.png";
 		import oyum from "$lib/images/oyum.png";
 		import holuj from "$lib/images/holuj.png";
 		import jumji from "$lib/images/jumji.png";
@@ -73,7 +73,7 @@
                 <img src={orango} alt="">
                 <img src={teralin} alt="">
                 <img src={huzzay} alt="">
-                <img src={hajray} alt="">
+                <img src={hajry} alt="">
                 <img src={oyum} alt="">
                 <img src={holuj} alt="">
             </div>
