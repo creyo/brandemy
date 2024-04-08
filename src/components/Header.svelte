@@ -2,8 +2,17 @@
     import logo2 from "$lib/images/footer-logo.png";
     import { logged_in, current_user } from "$lib/store";
     import { goto } from "$app/navigation";
+  import { onMount } from "svelte";
     
     let isChecked = false;
+    let token ;
+
+    onMount(()=>{
+        token = localStorage.getItem('Brandemy_Token')
+        if(token){
+            logged_in.set(true)
+        }
+    })
     
 
     const menuItemClicked = () => {
@@ -14,6 +23,7 @@
         logged_in.set(false)
         current_user.set({})
         localStorage.removeItem('Brandemy_Token')
+        localStorage.removeItem('sb-vswslypjtkwyzainjgzn-auth-token')
         goto('/')
     }
 

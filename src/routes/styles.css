@@ -402,7 +402,6 @@ height: 40px;
   .btn a{
     text-decoration: none;
   }
- 
 
   .btn-light:hover{
     background-color: #EFB027;
@@ -972,6 +971,10 @@ footer .social>*, footer p, footer a{
       padding: 5px 10px;
       border-radius: 10px;
     }
+
+    .get-suggestion .btn:hover{
+      background-color: rgb(97, 97, 97);
+    }
     .get-suggestion .btn img{
       margin-right: 10px;
     }
@@ -980,6 +983,7 @@ footer .social>*, footer p, footer a{
     }
 
     .dashboard-brand-card{
+      cursor: pointer;
       background-color: white;
       padding: 10px;
       border-radius: 10px;
@@ -1029,6 +1033,7 @@ footer .social>*, footer p, footer a{
 
     .dashboard-brand-card .voted{
       font-size: 16px;
+      margin-left: 5px;
     }
     .dashboard-brand-card .brand-name{
       font-size: 20px;
@@ -1074,6 +1079,148 @@ footer .social>*, footer p, footer a{
       background-color: white;
       border-radius: 10px;
     }
+
+    .voting-div{
+      background-color: #FFFAEE;
+      color: #EFB027;
+      font-family: "Inter", sans-serif;
+    }
+    .voting-main-heading{
+      font-size: 40px;
+      width: 45%;
+      margin-top: 2rem;
+    }
+    .voting-logo{
+      font-size: 90px;
+      font-weight: bold;
+    }
+    .voting-upper-div-para{
+      font-size: 23px;
+    }
+    .voting-upper-div>*{
+      margin-bottom: 1rem;
+    }
+    .voting-upper-div{
+       padding-left: 3rem;
+    }
+    .candidate-brands{
+      padding: 0 3rem;
+    }
+    .candidate-brands-heading{
+      font-size: 24px;
+      margin: 1rem 0;
+    }
+
+    .candidate-brands .dashboard-brand-card .brand-name{
+      color: #414141;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .candidate-brands .dashboard-brand-card{
+    box-shadow: 0px 4px 19px rgba(65, 65, 65, 0.25);
+    }
+    .candidate-brands .brands-grid{
+      margin: 3rem 2rem;
+    }
+    .candidate-brands .selected-card{
+      background-color: #EFB027;
+    }
+
+    .voting-comment-div textarea{
+      width: 100%;
+      resize: none;
+      border-radius:16px;
+      margin: 1rem 0;
+      color: #A9A9A9;
+      font-size: 18px;
+      padding: 2rem;
+    }
+
+    .voting-comment-div textarea:focus{
+     border-color: #EFB027;
+     outline-offset: 0px !important;
+     outline: none !important;
+    }
+
+    .voting-div .btn{
+      background-color: white;
+      border: 1px solid #414141;
+      border-radius: 8px;
+      width: 100%;
+      margin-left:10px;
+    }
+
+    .voting-comment-div input{
+      color: #A9A9A9;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid #414141;
+      width: 100%;
+      margin-right:10px;
+    }
+
+    .voting-lower-div-heading{
+      font-size: 48px;
+      font-weight: 500;
+    }
+    .voting-lower-div-para{
+      font-size: 24px;
+      width: 90%;
+    }
+    .voting-lower-div-left{
+      margin: 2rem 0;
+      width: 70%;
+    }
+    .voting-lower-div-left>*{
+      margin: 1rem 0;
+    }
+
+    .voting-lower-div-left .btn{
+      width: 40%;
+    }
+
+    .voting-lower-div-right img{
+      height: 70%;
+      width: 70%;
+      background-color: white;
+      padding: 3rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    .voting-lower-div-right{
+      margin-top: 2rem;
+      margin-left: 5rem;
+    }
+
+    .voting-lower-div-right .first-image{
+      position: relative;
+      left: -5rem;
+      top: 4rem;
+      z-index: 0;
+    }
+    .voting-lower-div-right .third-image{
+      z-index: 0;
+      position: relative;
+      left: 5rem;
+      top: -4rem;
+    }
+    
+    .voting-lower-div-right .second-image{
+      position: relative;
+      z-index: 1;
+    }
+
+    .get-suggestion #friend_input{
+      border: none;
+      background-color: white;
+      border-radius: 8px;
+      padding: 1rem 2rem;
+    }
+
+  
+
   @media(max-width: 479px) {
     .container{
     width: 99%;

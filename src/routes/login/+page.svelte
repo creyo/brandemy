@@ -13,19 +13,20 @@
     import { logged_in , current_user } from "$lib/store";
   import { onMount } from "svelte";
   import Spinner from "../../components/Spinner.svelte";
-  import { load } from "../[slug]/proxy+page.server";
 
     let email;
   let password;
   let google_token;
-  let loading = false;
+  let loading = true;
 
 
   onMount(async()=>{
+    let token = localStorage.getItem('Brandemy_Token')
     if($logged_in){
+      // $logged_in = true
       goto('/dashboard')
     }
-    
+    loading= false;
     google_token=JSON.parse(localStorage.getItem('sb-vswslypjtkwyzainjgzn-auth-token'))
     
     if(google_token){
@@ -43,9 +44,11 @@
       if(response.status){
       
       localStorage.setItem("Brandemy_Token", response.token)
+      localStorage.setItem('Brandemy_User', JSON.stringify(response.user));
+
       logged_in.set(true)
-      console.log(response)
-      current_user.set(response.user)
+      // console.log(response.user)
+      // current_user.set(response.user)
       loading = false
       goto('/dashboard');
     }
@@ -84,9 +87,11 @@ const submitForm = async(e) => {
    
     if(response.status){
       localStorage.setItem("Brandemy_Token", response.token)
+      localStorage.setItem('Brandemy_User', JSON.stringify(response.user));
+
       logged_in.set(true)
-      console.log(response)
-      current_user.set(response.user)
+      // console.log(response.user)
+      // current_user.set(response.user)
       goto('/dashboard');
     }
     }

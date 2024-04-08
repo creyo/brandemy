@@ -23,6 +23,7 @@ const handlePopulation = () => {
 
 
     onMount(async () => {
+        console.log(blogs)
 		if (blogs) {
             isLoading = false;
 		}

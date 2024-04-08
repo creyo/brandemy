@@ -21,6 +21,8 @@
     if($logged_in){
       goto('/dashboard')
     }
+
+    
   })
 
   const  isValidEmail = (email) => {
