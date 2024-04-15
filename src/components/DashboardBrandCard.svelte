@@ -1,7 +1,7 @@
 <script>
 // @ts-nocheck
 
-    export let brand , selected_brand , change_selected_brand;
+    export let brand , selected_brand , change_selected_brand, selected_brand_comments;
     import user from '$lib/images/user.png'
     import like from '$lib/images/thumbs-up.png'
     import comment from '$lib/images/comment.png'
@@ -13,13 +13,17 @@
     $: {
     selected = selected_brand === brand.id;
   }
+  
+  let comment_count;
 
     onMount(()=>{
         // console.log('selected',selected_brand)
-        // console.log('brand',brand.id)
+        // console.log('brand',brand)
         if(selected_brand === brand.id){
             selected=true;
         }
+       comment_count= selected_brand_comments.length
+    //    console.log(comment_count)
     })
 
     const handleClick = () =>{
@@ -52,7 +56,7 @@
     </div>
     <div class="flex">
         <img src={comment} alt="">
-        <p class="voted">5</p>
+        <p class="voted">{comment_count}</p>
     </div>
 </div>
 

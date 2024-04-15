@@ -83,10 +83,22 @@ let friend_email = [
     'pawanrajput852710@gmail.com',
     'wasiqureshi01@gmail.com'
 ]
+const isEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
+}
 
 const add_friend_email = () => {
+    if(friend_email_input === ''){
+        window.alert('please enter the email')
+        return
+    }
+    if (!isEmail(friend_email_input)) {
+        window.alert('Please enter a valid email');
+        return;
+    }
     friend_email = [...friend_email, friend_email_input]; // Using spread operator to create a new array
-    console.log(friend_email);
+    // console.log(friend_email);
     friend_email_input = ''; // Clear the input after adding the email
   };
 
@@ -123,6 +135,32 @@ const handleKeyDown = (event) => {
             add_friend_email(); // Call the add_friend_email function when Enter key is pressed
         }
     };
+    
+    function timeAgo(timestamp) {
+  const previousDate = new Date(timestamp);
+  const currentDate = new Date();
+  const timeDifference = currentDate.getTime() - previousDate.getTime();
+
+  // Convert milliseconds to seconds, minutes, hours, and days
+  const seconds = Math.floor(timeDifference / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+  const weeks = Math.floor(days / 7);
+
+  if (weeks > 0) {
+    return weeks === 1 ? "1 week ago" : `${weeks} weeks ago`;
+  } else if (days > 0) {
+    return days === 1 ? "1 day ago" : `${days} days ago`;
+  } else if (hours > 0) {
+    return hours === 1 ? "1 hour ago" : `${hours} hours ago`;
+  } else if (minutes > 0) {
+    return minutes === 1 ? "1 minute ago" : `${minutes} minutes ago`;
+  } else {
+    return "Just now";
+  }
+}
+
 </script>
 
 <section class="dashboard">
@@ -146,7 +184,7 @@ const handleKeyDown = (event) => {
         <div class="brands-grid">            
              {#if shortlisted_brands} 
             {#each shortlisted_brands as brand}
-                <DashboardBrandCard {brand} selected_brand={selected_brand} change_selected_brand = {(id)=>change_selected_brand(id)}/>
+                <DashboardBrandCard {brand} selected_brand={selected_brand} change_selected_brand = {(id)=>change_selected_brand(id)} { selected_brand_comments}/>
                 {/each}
                 {/if}
 
@@ -171,8 +209,7 @@ const handleKeyDown = (event) => {
                     <div class="flex dp-name">
                         <img src={person} alt="user-dp">
                         <p class="comment-user">Ali Raza</p>
-                    </div>
-                    <p class="comment-time">10 min ago</p>
+                    </div> <p class="comment-time">{timeAgo(comment.timestamp)}</p> 
                 </div>
                 <p class="comment margin-left">{comment.comment}</p>
                <div class="flex like-reply margin-left">

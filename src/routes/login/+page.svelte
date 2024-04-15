@@ -116,6 +116,12 @@ const handleGoogleAuth = async () => {
     }
   };
 
+  const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          submitForm(); // Call the add_friend_email function when Enter key is pressed
+        }
+    };
+
 </script>
 
 <section class="container">
@@ -125,11 +131,11 @@ const handleGoogleAuth = async () => {
 <form on:submit|preventDefault={submitForm} class="login-register-form">
     <div>
         <label for="email">Email</label>
-        <input type="text" name="email" bind:value={email}>
+        <input type="text" name="email" bind:value={email} on:keydown={handleKeyDown}>
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="password" name="password" bind:value={password}>
+        <input type="password" name="password" bind:value={password} on:keydown={handleKeyDown}>
     </div>
     <button class="btn btn-dark">
        Login
