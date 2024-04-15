@@ -99,7 +99,10 @@
                 <div class="voting-lower-div-left">
                     <p class="voting-lower-div-heading">Sign up with us and win a free Brandname with a domain</p>
                     <p class="voting-lower-div-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, illo!</p>
-                    <button class="btn">SignUp</button>
+                    <button class="btn">
+                        <a href="/register">SignUp
+                        </a>
+                        </button>
                 </div>
                 <div class="voting-lower-div-right">
                     <div class="first-image">

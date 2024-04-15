@@ -1180,6 +1180,10 @@ footer .social>*, footer p, footer a{
       width: 40%;
     }
 
+    .voting-lower-div-left .btn a{
+      color: #414141;
+    }
+
     .voting-lower-div-right img{
       height: 70%;
       width: 70%;

@@ -43,6 +43,11 @@ const submitForm = async(e) => {
     }
    
 }
+const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          submitForm(); // Call the add_friend_email function when Enter key is pressed
+        }
+    };
 
 </script>
 
@@ -50,7 +55,7 @@ const submitForm = async(e) => {
 <form on:submit|preventDefault={submitForm} class="login-register-form">
     <div>
         <label for="email">Enter your Email</label>
-        <input type="text" name="email" id="" bind:value={email}>
+        <input type="text" name="email" id="" bind:value={email} on:keydown={handleKeyDown}>
     </div>
     <button class="btn btn-dark">
        Proceed

@@ -45,7 +45,7 @@
     current_user = JSON.parse(localStorage.getItem('Brandemy_User'))
     name = current_user.name
     user_id = current_user.id
-    Link =  `localhost:5172/voting/${user_id}`
+    Link =  window.location.origin + `/voting/${user_id}`
     invite_url = `https://wisulbackend.netlify.app/.netlify/functions/index//emailsforvotings/${user_id}`
     // console.log(current_user)
     shortlisted_brands = current_user.mergedData.map((i)=> i.brands )

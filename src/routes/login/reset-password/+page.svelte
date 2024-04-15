@@ -61,18 +61,24 @@ console.log(data)
     }
   };
 
+  const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          submitForm(); // Call the add_friend_email function when Enter key is pressed
+        }
+    };
+
 </script>
 
 <section class="container">
 <form on:submit|preventDefault={submitForm} class="login-register-form">
     <div>
         <label for="password">Enter New Password</label>
-        <input type="password" name="password" bind:value={password}>
+        <input type="password" name="password" bind:value={password} on:keydown={handleKeyDown}>
     </div>
     <div>
         <label for="confirmPassword">Confirm Password</label>
-        <input type="password" name="password" bind:value={confirmPassword}>
-    </div>
+        <input type="password" name="password" bind:value={confirmPassword} on:keydown={handleKeyDown}>
+    </div> 
     <button class="btn btn-dark">
        Confirm
     </button>
