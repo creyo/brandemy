@@ -12,6 +12,10 @@
     let token;
     let password;
     let confirmPassword;
+  let error_message_heading = '';
+  let error_message = '';
+  let show_error = false;
+  import MsgCard from "../../components/MsgCard.svelte";
     onMount(() => {
       // Extract the token from the URL
       const urlParams = new URLSearchParams(window.location.search);
@@ -24,13 +28,23 @@
         goto('/error'); // Redirect to an error page
       }
     })
+
+    const show_warning= (heading,msg,time) =>{
+  show_error= true ;
+    setTimeout(() => {
+    show_error= false;
+  }, time);
+  error_message_heading = heading
+  error_message = msg
+}
  // @ts-ignore
     // @ts-ignore
     const submitForm = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      window.alert("Passwords don't match");
+      
+    show_warning('WARNING!','Passwords do not match',1000)
       return;
     }
 
@@ -70,6 +84,9 @@ console.log(data)
 </script>
 
 <section class="container">
+  {#if show_error}
+  <MsgCard heading={error_message_heading} msg={error_message} card_class = "msg-card negative-msg"/>
+  {/if}
 <form on:submit|preventDefault={submitForm} class="login-register-form">
     <div>
         <label for="password">Enter New Password</label>

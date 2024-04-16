@@ -587,6 +587,23 @@ footer .social>*, footer p, footer a{
     animation: spin 1s linear infinite;
   }
 
+  .btn-spinner .spinner{
+    margin-top: 0px;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+  }
+ 
+  .btn-spinner{
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: -10px 20px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .home{
     font-family: 'Product Sans', serif;
   }
@@ -897,7 +914,8 @@ footer .social>*, footer p, footer a{
     width: 40%; 
   }
 
-    .profile-info .draw-para span{
+    .profile-info .draw-para a{
+      text-decoration: none;
       color: #3E001F;
     }
 
@@ -953,6 +971,12 @@ footer .social>*, footer p, footer a{
       align-items: center;
     }
 
+    .brands-page .brands-grid{
+      
+      font-family: "Inter", sans-serif;
+      margin: 4rem 0;
+      grid-template-columns: repeat(3, 1fr);
+    }
     .suggested-brands .btn{
       background-color: white;
       border: 1px solid #414141;
@@ -982,12 +1006,18 @@ footer .social>*, footer p, footer a{
       justify-content: space-around;
     }
 
-    .dashboard-brand-card{
+    .dashboard-brand-card,
+    .brands-brand-card{
       cursor: pointer;
       background-color: white;
       padding: 10px;
       border-radius: 10px;
       margin-right: 10px;
+    }
+
+    .brands-page a{
+      text-decoration: none;
+      color: #333;
     }
 
     .suggested-brands .selected-card{
@@ -1010,20 +1040,29 @@ footer .social>*, footer p, footer a{
       background-color: #FFFAEE;
       color: #F0CA79;
     }
-    .dashboard-brand-card .logo-div{
+
+    .brands-brand-card .logo-div{
+      background-color: #FFF1F1;
+      color: #414141;
+    }
+
+    .dashboard-brand-card .logo-div,
+    .brands-brand-card .logo-div{
       padding: 2rem;
       margin: 1rem 0;
       position: relative;
       border-radius: 10px;
     }
 
-    .dashboard-brand-card .logo-div img{
+    .dashboard-brand-card .logo-div img,
+    .brands-brand-card .logo-div img{
       width: 70%;
       height: 70%;
       margin-left: 15px;
     }
 
-    .dashboard-brand-card .logo-div p{
+    .dashboard-brand-card .logo-div p,
+    .brands-brand-card .logo-div p{
       font-size: 14px;
       text-align: right;
       position: relative;
@@ -1035,7 +1074,8 @@ footer .social>*, footer p, footer a{
       font-size: 16px;
       margin-left: 5px;
     }
-    .dashboard-brand-card .brand-name{
+    .dashboard-brand-card .brand-name,
+    .brands-brand-card .brand-name{
       font-size: 20px;
     }
 
@@ -1110,6 +1150,33 @@ footer .social>*, footer p, footer a{
       font-size: 24px;
       margin: 1rem 0;
     }
+    .msg-card{
+      text-align: center;
+      background-color: #ffcccc;
+      color: #cc0000;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin: 0 auto;
+      margin-top: 50px;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .msg-card-heading{
+      font-size: 18px;
+      font-weight: bold;
+     
+    }
+
+    .positive-msg{
+      background-color: #ccffcc;
+      color: #008000;
+      width: 600px;
+    }
+    .negative-msg{
+      background-color: #ffcccc;
+      color: #cc0000;
+      width: 300px;
+    }
 
     .candidate-brands .dashboard-brand-card .brand-name{
       color: #414141;
@@ -1178,6 +1245,15 @@ footer .social>*, footer p, footer a{
 
     .voting-lower-div-left .btn{
       width: 40%;
+    }
+    .voting-lower-div-left .btn:hover, 
+    .voting-comment-div .btn:hover{
+      color: white;
+      background-color: #414141;
+    }
+
+    .voting-lower-div-left .btn:hover a{
+      color: white;
     }
 
     .voting-lower-div-left .btn a{

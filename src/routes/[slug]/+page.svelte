@@ -16,6 +16,7 @@
   export let data;
  
   let pageData = data.data;
+  console.log(pageData)
   // console.log(pageData.post_type.type_name);
 
   // @ts-ignore

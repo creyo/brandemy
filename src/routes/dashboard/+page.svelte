@@ -25,6 +25,10 @@
     import { logged_in } from '$lib/store'
     import DashboardBrandCard from '../../components/DashboardBrandCard.svelte'
     import EmailList from '../../components/EmailList.svelte';
+    let error_message_heading = '';
+  let error_message = '';
+  let show_error = false;
+  import MsgCard from "../../components/MsgCard.svelte";
     let shortlisted_brands;
     let shortlisted_brands_count;
     let current_user;
@@ -37,6 +41,7 @@
     let Link;
     let link_text = 'Copy Link'
     let invite_url;
+    let card_class;
     onMount(()=>{
     token = localStorage.getItem('Brandemy_Token')
     if(!token){
@@ -46,15 +51,23 @@
     name = current_user.name
     user_id = current_user.id
     Link =  window.location.origin + `/voting/${user_id}`
-    invite_url = `https://wisulbackend.netlify.app/.netlify/functions/index//emailsforvotings/${user_id}`
-    // console.log(current_user)
+    invite_url = `https://wisulbackend.netlify.app/.netlify/functions/index/emailsforvotings/${user_id}`
     shortlisted_brands = current_user.mergedData.map((i)=> i.brands )
     shortlisted_brands_comments = current_user.mergedData.map((i)=> i.votingData )
     selected_brand_comments = shortlisted_brands_comments[0]
     shortlisted_brands_count = shortlisted_brands.length
     selected_brand = shortlisted_brands[0].id
   })
-
+  const show_warning= (heading,msg,time,cls) =>{
+    card_class = cls
+  show_error= true ;
+    setTimeout(() => {
+    show_error= false;
+  }, time);
+  error_message_heading = heading
+  error_message = msg
+  
+}
   const change_selected_brand = (id) =>{
     selected_brand_comments = current_user.mergedData.filter((i)=> i.brands.id === id )[0].votingData
     if (selected_brand === id) {
@@ -90,11 +103,16 @@ const isEmail = (value) => {
 
 const add_friend_email = () => {
     if(friend_email_input === ''){
-        window.alert('please enter the email')
+    show_warning('WARNING!','Please enter the email',1000,"msg-card negative-msg")
         return
     }
     if (!isEmail(friend_email_input)) {
-        window.alert('Please enter a valid email');
+    show_warning('WARNING!','Please enter a valid email',1000,"msg-card negative-msg")
+        return;
+    }
+
+    if (friend_email.includes(friend_email_input)) {
+    show_warning('WARNING!','Email is already present',1000,"msg-card negative-msg")
         return;
     }
     friend_email = [...friend_email, friend_email_input]; // Using spread operator to create a new array
@@ -105,7 +123,7 @@ const add_friend_email = () => {
 const send_invite_link = async() =>{
     let invite_obj = {
         emails:friend_email,
-        UserName: name
+        userName: name
     }
     invite_obj = JSON.stringify(invite_obj)
 
@@ -121,6 +139,7 @@ const send_invite_link = async() =>{
     
     const response = await res.json();
     console.log(response)
+    show_warning('Thank You!','Emails are sent to you friends',1000,"msg-card positive-msg")
     }catch(error){
         console.log(error)
     }
@@ -174,7 +193,9 @@ const handleKeyDown = (event) => {
             }</p>    
     </div>
     <p class="draw-para">
-        You have been entered for a draw!! to win a free brand name. Get more chances by <span>clicking here</span> 
+        You have been entered for a draw!! to win a free brand name. Get more chances by
+            <a href="/free-brand" target="_blank">  clicking here</a>
+         
     </p>
     </div>
 
@@ -212,13 +233,13 @@ const handleKeyDown = (event) => {
                     </div> <p class="comment-time">{timeAgo(comment.timestamp)}</p> 
                 </div>
                 <p class="comment margin-left">{comment.comment}</p>
-               <div class="flex like-reply margin-left">
+               <!-- <div class="flex like-reply margin-left">
                 <div class="flex likes">
                     <img src={like} alt="">
                     <p>255</p>
                 </div>
                 <p>Reply</p>
-               </div>
+               </div> -->
             </div>
             {/each}
             {/if}
@@ -241,7 +262,9 @@ const handleKeyDown = (event) => {
                                    </div>
             </button>
         </div>
-
+        {#if show_error}
+        <MsgCard heading={error_message_heading} msg={error_message} card_class = {card_class}/>
+        {/if}
         <div class="flex">
             <p style="font-weight: 600;">Invite your friends through mail</p>
             <!-- <p class="your-email">rajeshwar@gmail.com</p> -->

@@ -9,9 +9,9 @@
 	    import dubicon from "$lib/images/dubicon.png";
 		import bozul from "$lib/images/bozul.png";
 		import urmania from "$lib/images/urmania.png";
-		import orango from "$lib/images/orango.png";
+		import orango from "$lib/images/oragano.png";
 		import teralin from "$lib/images/teralin.png";
-		import huzzay from "$lib/images/huzzay.png";
+		import huzzay from "$lib/images/huzay.png";
 		import hajry from "$lib/images/hajry.png";
 		import oyum from "$lib/images/oyum.png";
 		import holuj from "$lib/images/holuj.png";

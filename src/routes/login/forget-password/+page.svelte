@@ -7,8 +7,19 @@
 
   import google from '$lib/images/google.png';
     import { goto } from '$app/navigation';
-    let email;
-
+  import MsgCard from "../../components/MsgCard.svelte"; 
+    let error_message_heading = '';
+  let error_message = '';
+  let show_error = false;
+    const show_warning= (heading,msg,time) =>{
+  show_error= true ;
+    setTimeout(() => {
+    show_error= false;
+  }, time);
+  error_message_heading = heading
+  error_message = msg
+}
+let email;
     const  isValidEmail = (email) => {
     // Regular expression for validating email addresses
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -17,7 +28,8 @@
 
 const submitForm = async(e) => {
     if(!isValidEmail(email)){
-    return window.alert("Not a Valid Email")
+        show_warning('WARNING!','Not a Valid Email',1000)
+    return
   }
     const apiURL = 'https://wisulbackend.netlify.app/.netlify/functions/index/forgetpassword'
     const form = e.target;
@@ -52,6 +64,9 @@ const handleKeyDown = (event) => {
 </script>
 
 <section class="container">
+    {#if show_error}
+  <MsgCard heading={error_message_heading} msg={error_message} card_class="msg-card negative-msg"/>
+  {/if}
 <form on:submit|preventDefault={submitForm} class="login-register-form">
     <div>
         <label for="email">Enter your Email</label>

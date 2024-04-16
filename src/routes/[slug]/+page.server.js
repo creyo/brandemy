@@ -61,8 +61,10 @@ import { supabase } from "$lib/supabaseClient";
           error: new Error('Internal Server Error'),
         };
       }
-      const brand = data.msg.filter(item => item.brand_name === params.slug)[0];
-      // console.log('brand', brand);
+      function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }   
+      const brand = data.msg.filter(item => item.brand_name === capitalizeFirstLetter(params.slug))[0];
       if (!brand) {
           return {
           status: 404,

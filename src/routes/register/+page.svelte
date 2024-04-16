@@ -16,6 +16,18 @@
   let name;
   let email;
   let password;
+  import MsgCard from "../../components/MsgCard.svelte"; 
+  let error_message_heading = '';
+  let error_message = '';
+  let show_error = false;
+    const show_warning= (heading,msg,time) =>{
+  show_error= true ;
+    setTimeout(() => {
+    show_error= false;
+  }, time);
+  error_message_heading = heading
+  error_message = msg
+}
 
   onMount(()=>{
     if($logged_in){
@@ -35,10 +47,12 @@
 const submitForm = async(e) => {
 
   if(!password || !name || !email){
-    return window.alert('Please fill properly')
+    show_warning('WARNING!','Please fill properly',1000)
+    return
   }
   if(!isValidEmail(email)){
-    return window.alert("Not a Valid Email")
+    show_warning('WARNING!','Not a Valid Email',1000)
+    return
   }
     // e.preventDefault();
     const apiURL = 'https://wisulbackend.netlify.app/.netlify/functions/index/brandemy_register'
@@ -61,7 +75,7 @@ const submitForm = async(e) => {
     }
     console.log(response)
     msg = response.msg
-    window.alert(msg)
+    show_warning('WARNING!',msg,1000)
     form.reset();
   }
   
@@ -83,10 +97,6 @@ const handleGoogleAuth = async () => {
         // @ts-ignore
         localStorage.setItem('sb-czlpeqcpksfalvtmrulq-auth-token', data.user.access_token);
         console.log(data)
-        // @ts-ignore
-        // redirect("/", 200);
-        
-    // window.location.href = '/dashboard';
       }
     } catch (error) {
       // @ts-ignore
@@ -102,6 +112,9 @@ const handleGoogleAuth = async () => {
 </script>
 
 <section class="container">
+  {#if show_error}
+  <MsgCard heading={error_message_heading} msg={error_message} card_class="msg-card negative-msg"/>
+  {/if}
 <form on:submit|preventDefault={submitForm} class="login-register-form">
     <div>
         <label for="name">Name</label>
