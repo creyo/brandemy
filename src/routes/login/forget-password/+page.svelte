@@ -7,7 +7,8 @@
 
   import google from '$lib/images/google.png';
     import { goto } from '$app/navigation';
-  import MsgCard from "../../components/MsgCard.svelte"; 
+  import MsgCard from '../../../components/MsgCard.svelte';
+
     let error_message_heading = '';
   let error_message = '';
   let show_error = false;
