@@ -15,7 +15,7 @@
   let error_message_heading = '';
   let error_message = '';
   let show_error = false;
-  import MsgCard from "../../components/MsgCard.svelte";
+  import MsgCard from "../../../components/MsgCard.svelte";
     onMount(() => {
       // Extract the token from the URL
       const urlParams = new URLSearchParams(window.location.search);
