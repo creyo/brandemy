@@ -1014,6 +1014,20 @@ footer .social>*, footer p, footer a{
       border-radius: 10px;
       margin-right: 10px;
     }
+    .brand-section {
+      margin: 3rem 0;
+    }
+    .brands-brand-card{
+      
+    box-shadow: 0px 4px 19px rgba(65, 65, 65, 0.25);
+    }
+
+    .btn-disabled{
+      background-color: #A9A9A9;
+      color: #333;
+      pointer-events: none; 
+      cursor: not-allowed;
+    }
 
     .brands-page a{
       text-decoration: none;
@@ -1170,12 +1184,10 @@ footer .social>*, footer p, footer a{
     .positive-msg{
       background-color: #ccffcc;
       color: #008000;
-      width: 600px;
     }
     .negative-msg{
       background-color: #ffcccc;
       color: #cc0000;
-      width: 300px;
     }
 
     .candidate-brands .dashboard-brand-card .brand-name{

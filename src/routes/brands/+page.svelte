@@ -18,7 +18,7 @@
 
 {#if brand_list} 
 {#each brand_list as brand}
-<a href={brand.url}>
+<a href="brands{brand.url}">
 <div class='brands-brand-card'>
     <div class="flex">
         <p class="brand-name">{brand.brand_name}</p>

@@ -35,10 +35,36 @@ let isLoading = true;
 {:else}
 {#if brandData}
 <section class="container">
-    <h1>{brandData.brand_name}</h1>
-    <p>{brandData.domain_name}</p>
-    <h3>{brandData.description}</h3>
-    <p>{brandData.price}</p>
+  <div class="brand-section flex">
+
+    <div class='brands-brand-card'>
+      <div class="flex">
+          <p class="brand-name">{brandData.brand_name}</p>
+          <!-- <img src={user} alt=""> -->
+          <div class="flex">
+            <p>Buy Now: </p>
+            <p>{brandData.price}</p>
+          </div>
+      </div>
+      <div class="logo-div logo-div-jumji" >
+          <img src={`/src/lib/images/${brandData.logo}`} alt="brand-img">
+          <p>{brandData.domain_name}</p>
+      </div>    
+      </div>
+      <div>
+        {brandData.description}
+        <div>
+          <button class="btn btn-dark">
+            <a href={brandData.buy_now} target="_blank">
+            Checkout
+          </a>
+          </button>
+          <button class="btn btn-light">
+            Inquire
+          </button>
+        </div>
+      </div>
+</div>
 </section>
 {:else}
   <p>Brand not found</p>

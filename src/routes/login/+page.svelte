@@ -21,10 +21,10 @@
   let loading = true;
   let show_error = false;
   let waiting_for_response=false;
-
   let error_message_heading = '';
   let error_message = '';
 
+  $: disabled_button = email && email.trim() !== '' && password && password.trim() !== '';
   onMount(async()=>{
     let token = localStorage.getItem('Brandemy_Token')
     if($logged_in){
@@ -143,7 +143,7 @@ const handleGoogleAuth = async () => {
 
 <section class="container">
   {#if show_error}
-  <MsgCard heading={error_message_heading} msg={error_message} card_class="msg-card negative-msg"/>
+  <MsgCard heading={error_message_heading} msg={error_message} card_class="msg-card negative-msg" class='width-300'/>
   {/if}
 {#if loading}
 <Spinner/>
@@ -162,7 +162,7 @@ const handleGoogleAuth = async () => {
       <Spinner/>
     </button>
     {:else}
-    <button class="btn btn-dark">
+    <button class="btn {disabled_button ? 'btn-dark' : 'btn-disabled'}">
        Login
     </button>
     {/if}
