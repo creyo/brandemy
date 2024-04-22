@@ -57,6 +57,7 @@
     selected_brand_comments = shortlisted_brands_comments[0]
     shortlisted_brands_count = shortlisted_brands.length
     selected_brand = shortlisted_brands[0].id
+    // console.log(shortlisted_brands_comments)
   })
   const show_warning= (heading,msg,time,cls) =>{
     card_class = cls
@@ -93,8 +94,6 @@
   }
 let friend_email_input;
 let friend_email = [
-    'pawanrajput852710@gmail.com',
-    'wasiqureshi01@gmail.com'
 ]
 const isEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -210,10 +209,12 @@ const handleKeyDown = (event) => {
                 {/if}
 
             <button class="btn">
+                <a href="/brands">
                 <div class="flex">
                     <img src={plus} alt=""/>
                     <p>Add More</p>
                 </div>
+            </a>
             </button>
         </div>
     </div>
@@ -229,7 +230,7 @@ const handleKeyDown = (event) => {
                 <div class="flex">
                     <div class="flex dp-name">
                         <img src={person} alt="user-dp">
-                        <p class="comment-user">Ali Raza</p>
+                        <p class="comment-user">{comment.voter.name}</p>
                     </div> <p class="comment-time">{timeAgo(comment.timestamp)}</p> 
                 </div>
                 <p class="comment margin-left">{comment.comment}</p>
@@ -283,7 +284,7 @@ const handleKeyDown = (event) => {
             </button>
         </div>
 
-        <div class="flex">
+        <div class="suggested_email_list">
        {#each friend_email as fe}
             <EmailList email={fe} delete_email={delete_email}/>
         {/each}                    

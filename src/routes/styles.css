@@ -996,8 +996,15 @@ footer .social>*, footer p, footer a{
       border-radius: 10px;
     }
 
-    .get-suggestion .btn:hover{
+    .get-suggestion .btn:hover,
+    .suggested-brands .btn:hover{
       background-color: rgb(97, 97, 97);
+    }
+    .suggested-brands .btn:hover a{
+      background-color: rgb(97, 97, 97);
+    }
+    .suggested-brands .btn a{
+      color: #414141;
     }
     .get-suggestion .btn img{
       margin-right: 10px;
@@ -1013,6 +1020,9 @@ footer .social>*, footer p, footer a{
       padding: 10px;
       border-radius: 10px;
       margin-right: 10px;
+    }
+    .brands-brand-card:hover{
+      background-color: #F7B1D0;
     }
     .brand-section {
       margin: 3rem 0;
@@ -1113,6 +1123,10 @@ footer .social>*, footer p, footer a{
       margin: 2rem 0;
     }
 
+    .suggested_email_list{
+      display: flex;
+    }
+
     .get-suggestion .get-suggestion-first-child{
       width: 40%;
     }
@@ -1123,6 +1137,7 @@ footer .social>*, footer p, footer a{
       border-radius: 10px;
       color: #B2B2B2;
       margin-right: 10px;
+
     }
     .get-suggestion .suggested-email p{
       margin-right: 10px;
@@ -1268,7 +1283,8 @@ footer .social>*, footer p, footer a{
       color: white;
     }
 
-    .voting-lower-div-left .btn a{
+    .voting-lower-div-left .btn a,
+    .suggested-brands .btn a{
       color: #414141;
     }
 
